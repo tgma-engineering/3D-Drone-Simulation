@@ -1,0 +1,39 @@
+File contains requirements 
+
+Drone class:
+-> Needs to safe rotation Quaternion 
+-> Needs to safe velocity vector (speed)
+-> Needs to safe angular velocity vector
+-> Needs to safe position
+-> Propellor needs to be saved
+-> Coordinate frame vector should be also be saved
+
+Quaternion Class:
+-> Create Quaternion 
+-> Calculate Quaternion multiplication
+-> Methods
+	- getconjugate
+	- getQuaternionDromAngle()
+	- quaternionMultiplication
+	- calculateRotation
+	- calculateRorationFromGivenQuaternion
+	- eulerToQuartanion
+	- quaternionToEuler
+
+Physics Class:
+-> Updates Drone Position after each frame
+-> Makes use of Numerical Method functions to calculate new state space vector 
+->
+
+Const class: saves constants for
+-> k parameter for drag
+-> g parameter
+-> drone mass
+-> drone max velocity (no need for it, because of DGL -> only for testing purpose)
+-> Vector for x y and z axis
+-> drone radius
+-> air density
+
+Vermutung:
+-> Fehler liegt in der Darstellung bzw Berechnung der Momemnte und den damit verbundne
+Geschwindigkeitsvektor
