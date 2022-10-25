@@ -3,8 +3,8 @@
 /**
  * Initializes Quternion object with (1,0,0,0)
  */
-Quaternion4::Quaternion4() {
-	Quaternion4 it = Quaternion4(1, 0, 0, 0);
+Quaternion4::Quaternion4(bool shouldNorm) {
+	Quaternion4 it = Quaternion4(1, 0, 0, 0, shouldNorm);
 	*this = it;
 }
 
@@ -126,7 +126,7 @@ Quaternion4 Quaternion4::quaternionMultiplication(Quaternion4 quaternion1, Quate
 	double j_part = quaternion1.w * quaternion2.y + quaternion1.y * quaternion2.w + quaternion1.z * quaternion2.x - quaternion1.x * quaternion2.z;
 	double k_part = quaternion1.w * quaternion2.z + quaternion1.z * quaternion2.w + quaternion1.x * quaternion2.y - quaternion1.y * quaternion2.x;
 
-	return Quaternion4(real_part, i_part, j_part, k_part);
+	return Quaternion4(real_part, i_part, j_part, k_part, false);
 };
 
 /**
@@ -196,6 +196,17 @@ void Quaternion4::multiply(float number) {
 	this->z = z * number;
 }
 
+void Quaternion4::addQuaternion(Quaternion4 quat) {
+	this->w = this->w + quat.w;
+	this->x = this->x + quat.x;
+	this->y = this->y + quat.y;
+	this->z = this->z + quat.z;
+}
+
 void Quaternion4::printVectorParams(std::vector<float> vec) {
 	std::cout << "Vector values: x= " << vec[0] << " y= " << vec[1] << " z= " << vec[2] << std::endl;
+}
+
+Quaternion4 Quaternion4::addQuat(Quaternion4 quat1, Quaternion4 quat2) {
+	return Quaternion4(quat1.getW() + quat2.getW(), quat1.getX() + quat2.getX(), quat1.getY() + quat2.getY(), quat1.getZ() + quat2.getZ());
 }

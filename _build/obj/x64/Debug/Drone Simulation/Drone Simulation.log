@@ -1,18 +1,6 @@
-﻿  Drone.cpp
-C:\Users\Ghul\Desktop\Drone Simulation\_build\Contants.h(24,52): warning C4305: "Initialisierung": Verkürzung von "double" in "const float"
-C:\Users\Ghul\Desktop\Drone Simulation\_build\Contants.h(25,52): warning C4305: "Initialisierung": Verkürzung von "double" in "const float"
-C:\Users\Ghul\Desktop\Drone Simulation\_build\Contants.h(26,52): warning C4305: "Initialisierung": Verkürzung von "double" in "const float"
-  Physics.cpp
-C:\Users\Ghul\Desktop\Drone Simulation\_build\Contants.h(24,52): warning C4305: "Initialisierung": Verkürzung von "double" in "const float"
-C:\Users\Ghul\Desktop\Drone Simulation\_build\Contants.h(25,52): warning C4305: "Initialisierung": Verkürzung von "double" in "const float"
-C:\Users\Ghul\Desktop\Drone Simulation\_build\Contants.h(26,52): warning C4305: "Initialisierung": Verkürzung von "double" in "const float"
-  main.cpp
-C:\Users\Ghul\Desktop\Drone Simulation\_build\Contants.h(24,52): warning C4305: "Initialisierung": Verkürzung von "double" in "const float"
-C:\Users\Ghul\Desktop\Drone Simulation\_build\Contants.h(25,52): warning C4305: "Initialisierung": Verkürzung von "double" in "const float"
-C:\Users\Ghul\Desktop\Drone Simulation\_build\Contants.h(26,52): warning C4305: "Initialisierung": Verkürzung von "double" in "const float"
-  mainTesting.cpp
-C:\Users\Ghul\Desktop\Drone Simulation\_build\Contants.h(24,52): warning C4305: "Initialisierung": Verkürzung von "double" in "const float"
-C:\Users\Ghul\Desktop\Drone Simulation\_build\Contants.h(25,52): warning C4305: "Initialisierung": Verkürzung von "double" in "const float"
-C:\Users\Ghul\Desktop\Drone Simulation\_build\Contants.h(26,52): warning C4305: "Initialisierung": Verkürzung von "double" in "const float"
-  Code wird generiert...
-  Drone Simulation.vcxproj -> C:\Users\Ghul\Desktop\Drone Simulation\_bin\Debug\Drone Simulation.exe
+﻿  main.cpp
+C:\Users\Ghul\Desktop\Drone Simulation\3D-Drone-Simulation\_build\Contants.h(27,52): warning C4305: "Initialisierung": Verkürzung von "double" in "const float"
+C:\Users\Ghul\Desktop\Drone Simulation\3D-Drone-Simulation\_build\Contants.h(28,52): warning C4305: "Initialisierung": Verkürzung von "double" in "const float"
+C:\Users\Ghul\Desktop\Drone Simulation\3D-Drone-Simulation\_build\Contants.h(29,52): warning C4305: "Initialisierung": Verkürzung von "double" in "const float"
+C:\Users\Ghul\Desktop\Drone Simulation\3D-Drone-Simulation\_build\main.cpp(91,136): warning C4305: "Argument": Verkürzung von "double" in "float"
+  Drone Simulation.vcxproj -> C:\Users\Ghul\Desktop\Drone Simulation\3D-Drone-Simulation\_bin\Debug\Drone Simulation.exe

@@ -8,12 +8,12 @@
 class Propellor
 {
 private:
-	int speed;
+	float speed;
 	double thrust;
 	double k = Constants::K_CONSTANT;
 public:
 	Propellor();
-	void setSpeed(int newSpeed); // set speed vlt von 0 bis 100 Prozent oder von 0 bis 255 an Arduino angelehnt, muss noch geändert werden
+	void setSpeed(float newSpeed); // set speed vlt von 0 bis 100 Prozent oder von 0 bis 255 an Arduino angelehnt, muss noch geändert werden
 	double calculateThrust();
 	int getSpeed();	
 };
@@ -39,11 +39,14 @@ class Drone
 
 		// Drone velocity
 		std::vector<float> velocity = {0.0f, 0.0f, 0.0f};
+
+		// Dronne angular velocity
+		std::vector<float> angularVelocity = {0.0f, 0.0f, 0.0f};
 	public:
 		Drone();
 		double calculateThrust();
-		void setPropellorSpeed(int propellor, int speed);
-		void setPropellorSpeed(int speed1, int speed2, int speed3, int speed4);
+		void setPropellorSpeed(int propellor, float speed);
+		void setPropellorSpeed(float speed1, float speed2, float speed3, float speed4);
 		void reset();
 
 		// getters
@@ -55,6 +58,11 @@ class Drone
 		void setRotation(Quaternion4 quat);
 		void setPosition(std::vector<float> pos);
 		void setVelocity(std::vector<float> vel);
+
+		// Methods for rotation 
+		std::vector<float> getTorqueVector();
+		void setAngularVelocity(std::vector<float> angvel);
+		std::vector<float> getAngularVelocoty();
 };
 
 

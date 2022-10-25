@@ -48,7 +48,7 @@ void drawDroneBody(Drone drone) {
 	rlRotatef(-90, 0, 0, 1);
 	rlTranslatef(pos.x, pos.y, pos.z);
 
-	DrawLine3D({0, 0, 0}, {1, 1 ,1}, RED);
+	DrawLine3D({0, 0, 0}, {0, 0 ,1}, RED);
 
 	rlRotatef(x_rotation_angle, 1, 0, 0);
 	rlRotatef(y_rotation_angle, 0, 1, 0);
@@ -86,31 +86,15 @@ int main()
 	int fps = GetFPS();
 
 	Drone drone = Drone();
-	
+
+	//drone.setPropellorSpeed(Constants::HOVER_SPEED, Constants::HOVER_SPEED, Constants::HOVER_SPEED, Constants::HOVER_SPEED);
+	drone.setPropellorSpeed(1.1*Constants::HOVER_SPEED, 0.9*Constants::HOVER_SPEED, 1.1*Constants::HOVER_SPEED, 0.9*Constants::HOVER_SPEED);
+
 	int counter = 0;
 		
 	while (!WindowShouldClose()) {
-		//counter++;
-		//cout << "counter " << counter << endl;
 		
 		/*
-		if (counter <= 260) {
-			drone.setRotation(Quaternion4::getQuaternionFromVectorAngle((double)counter, { 1, 1, 0}, true));
-		}
-		else if (counter <= 262) {
-			drone.reset();
-		}
-		else if (counter <= 622) {
-			drone.setRotation(Quaternion4::getQuaternionFromVectorAngle(counter, { 0, 1, 0 }, true));
-		}
-		else if (counter <= 624) {
-			drone.reset();
-		}
-		else if (counter <= 720) {
-			drone.setRotation(Quaternion4::getQuaternionFromVectorAngle(counter, { 0, 0, 1}, true));
-		}
-		*/
-
 		counter++;
 		if (counter > 60 && counter < 100) {
 			drone.setRotation(Quaternion4::getQuaternionFromVectorAngle(45, { 1, 1, 1 }, true));
@@ -118,6 +102,7 @@ int main()
 		else if (counter > 100) {
 			Constants::UNIT_VECTOR_Z = { 0, 0, 0 };
 		}
+		*/
 	
 		UpdateCamera(&cam);
 		BeginDrawing();
@@ -126,6 +111,7 @@ int main()
 
 		// Updating Physics
 		Physics::updatePosition(&drone, 1.f / 60);
+		Physics::updateRotation(&drone, 1.f / 60);
 
 		// Drawing Drone
 		drawDroneBody(drone);
