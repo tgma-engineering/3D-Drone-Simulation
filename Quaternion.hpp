@@ -15,12 +15,11 @@ class Quaternion4 {
 private:
     T w, x, y, z;
 public:
-    // Constructor
-    Quaternion4(T w, T x, T y, T z) : w(w), x(x), y(y), z(z) {}
+    Quaternion4(T w, T x, T y, T z) : w(w), x(x), y(y), z(z) {} // create Quaternion
 
-    // Construct quaternion from vector
-    explicit Quaternion4(vec<T> vec): w(0), x(vec.x()), y(vec.y()), z(vec.z()){}
+    explicit Quaternion4(vec<T> vec): w(0), x(vec.x()), y(vec.y()), z(vec.z()){} // Construct quaternion from vector
 
+    // Create quaternion from Rotation axis vector and degrees in [rad]
     explicit Quaternion4(vec<T> vec, double rad){
         w = cos(rad / 2);
         x = sin(rad / 2) * vec.x();
@@ -28,17 +27,17 @@ public:
         z = sin(rad / 2) * vec.z();
     }
 
-    // Adding two Quaternions
+    // Add two Quaternion
     Quaternion4<T> operator+(const Quaternion4<T>& other){
         return Quaternion4<T>(w + other.w, x + other.x, y + other.y, z + other.z);
     }
 
-    // Subtracting two quaternions
+    // Subtract two Quaternion
     Quaternion4<T> operator-(const Quaternion4<T>& other){
         return Quaternion4<T>(w - other.w, x - other.x, y - other.y, z - other.z);
     }
 
-    // Multiplying two quaternions
+    // Multiply two Quaternion
     Quaternion4<T> operator*(const Quaternion4<T>& other){
         T real_part = w * other.w - x * other.x - y * other.y - z * other.z;
         T i_part = w * other.x + x * other.w + y * other.z - z * other.y;
@@ -47,25 +46,22 @@ public:
         return Quaternion4<T>(real_part, i_part, j_part, k_part);
     }
 
+    // Multiply Quaternion with scalar
     Quaternion4<T> operator*(const double scalar){
         return Quaternion4<T>(w * scalar, x * scalar, y * scalar, z * scalar);
     }
 
+    T norm(); // Returns norm of Quaternion
 
-    // Returns norm of quaternion
-    T norm();
-    // Returns Conjugate of quatenrion
-    Quaternion4<T> conjugate();
-    // Returns inverse of quaternion
-    Quaternion4<T> inverse();
-    // Returns quaternion normalized
-    Quaternion4<T> normalize();
+    Quaternion4<T> conjugate(); // Returns Conjugate of Quaternion
 
-    // returns imaginary vector from quaternion
-    vec<T> imaginaryVector();
+    Quaternion4<T> inverse(); // Returns inverse of Quaternion
 
-    // returns rotated vector around rotation axis with given rad
-    static vec<T> rotatedVector(vec<T> vector, vec<T> axisVector, double rad);
+    Quaternion4<T> normalize(); // Returns Quaternion normalized
+
+    vec<T> imaginaryVector(); // Returns imaginary vector from Quaternion
+
+    static vec<T> rotatedVector(vec<T> vector, vec<T> axisVector, double rad); // returns rotated vector around rotation axis with given rad
 
     vec<T> convertQuaternionToAxisAngleRepresentation(){
         T theta = 2 * acos(w);
@@ -75,11 +71,11 @@ public:
         return vec<T>{x / divisor, y / divisor, z / divisor};
     }
 
-    vec<T> rotateVectorAroundQuaternion(vec<T> vector);
+    vec<T> rotateVectorAroundQuaternion(vec<T> vector); // Rotates vector aroung Quaternion
 
-    vec<T> getRotationAngles() const;
+    vec<T> getRotationAngles() const; // Returns euler angles from quaternion
 
-    // operator for printing quaternion
+    // Print Quaternion to console
     template <typename S>
     friend std::ostream& operator<<(std::ostream&os, const Quaternion4<S>& q);
 };

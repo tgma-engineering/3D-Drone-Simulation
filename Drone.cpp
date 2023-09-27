@@ -7,11 +7,11 @@ Drone::Drone() {
     propellors[3] = Propellor(); // Propellor 4
 
     // reset();
-    double speed = 5000;
+    double speed = 10;
     propellors[0].setSpeed(speed);
-    propellors[1].setSpeed(speed * 0);
-    propellors[2].setSpeed(speed * 0);
-    propellors[3].setSpeed(speed * 0);
+    propellors[1].setSpeed(0);
+    propellors[2].setSpeed(speed);
+    propellors[3].setSpeed(speed);
 }
 
 void Drone::reset() {
@@ -62,11 +62,10 @@ void Drone::setSpeedOfAllPropellors(double speed) {
 
 Propellor::Propellor() {
     speed = 0.0;
-    thrust = 0;
 }
 
-void Propellor::setSpeed(double newSpeed) {
-    speed = newSpeed;
+void Propellor::setSpeed(int newSpeed) {
+    speed = Constants::MAX_ANGULAR_VELOCITY_MOTOR * newSpeed / 100;
 }
 
 double Propellor::getSpeed() {

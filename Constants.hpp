@@ -13,12 +13,12 @@ class Constants {
 public:
     // Drone parameter Coefficients
     static constexpr paramType DRONE_MASS = 0.468; // Drone mass in kg
-    static constexpr paramType PROPELLOR_RADIUS = 0.05;
+    static constexpr paramType PROPELLOR_RADIUS = 0.03;
     static constexpr paramType DRONE_ARM_LENGTH = 0.1;
     static constexpr paramType K_CONSTANT = 2.980e-6; // Die k konstante die gemeint ist um Torque einfacher auszurechnene
     static constexpr paramType B_CONSTANT = 1.140e-7; // Die b konstante für Ausrechnen des Drehmomentes um z achse
     static constexpr paramType GRAVITATION = 9.81; // Gravitational constant
-    static constexpr paramType MAX_THRUST = 1;
+    static constexpr paramType MAX_ANGULAR_VELOCITY_MOTOR = 3000;
 
     static constexpr float HOVER_SPEED = 650;
 
@@ -29,7 +29,6 @@ public:
     inline static const Eigen::Vector3<paramType> GRAVITY_VECTOR{0, 0, - DRONE_MASS * GRAVITATION};
 
     // Drag Coefficients
-    // Achtung hier auf null gesetzt
     static constexpr paramType DRAG_IN_X_DIRECTION = .01; //
     static constexpr paramType DRAG_IN_Y_DIRECTION = .01; //
     static constexpr paramType DRAG_IN_Z_DIRECTION = .01; //
